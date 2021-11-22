@@ -165,7 +165,26 @@ def delete_a_user():
 	)
 
 def home():
-	return {"Twitter API": "working!"}
+
+	"""
+	This path operation show all tweets in the app
+
+	Parameters:
+		-
+
+	Returns a json list with all tweets in the app, with the following keys:
+		- tweet_id: UUID
+		- content: Emailstr
+		- created_at: str
+		- updated_at: str
+		- by: User
+
+	"""
+
+	with open("tweets.json", "r+", encoding="utf-8") as f:
+		results = json.loads(f.read())
+		return results
+
 
 ### Post a Tweet
 
